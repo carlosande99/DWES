@@ -20,15 +20,17 @@
         </section>
 
         <aside>
-            <form name="input" action="consulta.php" method="post">
+            <form action="consulta.php" method="post">
                 <fieldset style="display: inline;">
                     <legend>Datos de Contacto</legend>
                     Nombre <input type="text" name="nombre"><br><br>
                     Apellidos <input type="text" name="apellidos"><br><br>
                     Correo <input type="email" name="correo"><br><br>
                     Numero <input type="number" name="numero"><br><br>
-                    <input type="checkbox" name="opcion">Opcion 1<br><br>
-                    Dime una fecha <input type="date" name="fecha"><br><br>
+                    <input type="checkbox" name="check" value="Opcion 1">Opcion 1<br><br>
+                    <input type="checkbox" name="check" value="Opcion 2">Opcion 2<br><br>
+                    Fecha de nacimiento <input type="date" name="fecha"><br><br>
+                    <input type="radio" name="condiciones">Aceptacion de las condiciones<br><br>
                     <input type="submit" value="Enviar">
                 </fieldset>
             </form>

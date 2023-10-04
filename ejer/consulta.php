@@ -1,30 +1,29 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-</head>
-<body>
-    <?php
-        include("cabecera.php");
-        include("contar.php");
-    ?>
-    <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST"){
-            echo "<h2>Datos del formulario recibidos:</h2>";
-            echo  "Nombre: ".$_POST['nombre']."<br>";
-            echo  "Apellidos: ".$_POST['apellidos']."<br>";
-            echo "Correo: ".$_POST['correo']."<br>";
-            echo "Numero: ".$_POST['numero']."<br>";
-            $opcion = isset($_POST["opcion"]) ? "Marcado" : "No marcado";
-            echo "<p>Opcion: $opcion</p>";
-            echo "Fecha: ".$_POST['fecha']."<br>";
-        }
-
-    ?>
-    <?php
-        include("footer.inc.php");
-        echo "<br>";
-        include("contar.php");
-    ?>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <title>Principal</title>
+    </head>
+    <body>
+        <?php
+            include("cabecera.php");
+            include("contar.php");
+        ?>
+        <?php
+            echo '<br>Nombre: '.$_POST['nombre'];
+            echo '<br>Apellidos: '. $_POST['apellidos'];
+            echo '<br>Tu correo: '.$_POST['correo'];
+            echo '<br>Tu numero es: '.$_POST['numero'];
+            echo '<br>Tu opcion es: '.$_POST['check'];
+            echo '<br>Tu fecha es: '.$_POST['fecha'];
+            echo '<br>Aceptas la condiciones: '.$_POST['condiciones'];
+        ?>
+        <?php
+            include("footer.inc.php");
+            echo "<br>";
+            include("contar.php");
+        ?>
+        </footer>
+    </body>
 </html>
