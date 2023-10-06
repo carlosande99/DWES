@@ -18,6 +18,10 @@
         </fieldset>
     </form>
     <?php
+        include("contacto.inc.php");
+        include("agenda.inc.php");
+        $agenda = new Agenda();
+        $agenda -> agregarContacto(new Contacto());
         $conexion = new mysqli('localhost', 'carlos', '741852963sande', 'agenda');
         print $conexion->server_info;
         $resultado = $dwes->query('INSERT INTO agenda ();');
