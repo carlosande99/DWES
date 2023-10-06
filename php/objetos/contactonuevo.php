@@ -18,8 +18,10 @@
         </fieldset>
     </form>
     <?php
-        $conexion = new mysqli('localhost', 'agenda', 'agenda', 'agenda');
-        print conexion->server_info;
+        $conexion = new mysqli('localhost', 'carlos', '741852963sande', 'agenda');
+        print $conexion->server_info;
+        $resultado = $dwes->query('INSERT INTO agenda ();');
+        $conexion->close();
     ?>
 </body>
 </html>

@@ -11,13 +11,14 @@
 <body>
     <?php
         class Contacto{
-            private $idContacto;
+            // private $idContacto;
+            // private static 
             private $nombre;
             private $apellido1;
             private $apellido2;
             private $telefono;
 
-            public function __construct($idContacto, $nombre, $apellido1,$apellido2,$telefono){
+            public function __construct($nombre, $apellido1,$apellido2,$telefono){
                 $this->idcontacto = $idContacto;
                 $this->nombre = $nombre;
                 $this->apellido1 = $apellido1;
