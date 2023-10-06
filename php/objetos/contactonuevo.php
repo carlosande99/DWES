@@ -12,7 +12,7 @@
             <legend>Datos de Contacto</legend>
                 Nombre <input type="text" name="nombre"><br><br>
                 Primer apellido <input type="text" name="apellidos1"><br><br>
-                Segundo apellido <input type="email" name="apellidos2"><br><br>
+                Segundo apellido <input type="text" name="apellidos2"><br><br>
                 Numero de telefono <input type="number" name="telefono"><br><br>
                 <input type="submit" value="Enviar">
         </fieldset>
@@ -21,10 +21,15 @@
         include("contacto.inc.php");
         include("agenda.inc.php");
         $agenda = new Agenda();
-        $agenda -> agregarContacto(new Contacto());
+        $agenda -> agregarContacto(new Contacto($_POST['nombre'],$_POST['apellidos1'],$_POST['apellidos2'],$_POST['telefono']));
+        $id= Agenda::$contactos[0];
+        $nombre = Agenda::$contactos[1];
+        $apellido1 = Agenda::$contactos[2];
+        $apellido2 = Agenda::$contactos[3];
+        $telefono = Agenda::$contactos[4];
         $conexion = new mysqli('localhost', 'carlos', '741852963sande', 'agenda');
-        print $conexion->server_info;
-        $resultado = $dwes->query('INSERT INTO agenda ();');
+        // print $conexion->server_info;
+        $resultado = $dwes->query('INSERT INTO agenda(id,nombre,apellido_1,apellido_2,telefono) VALUES (:id,:nombre,:apellidos1,:apellidos2,:telefono);');
         $conexion->close();
     ?>
 </body>
