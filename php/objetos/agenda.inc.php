@@ -36,6 +36,9 @@
                 }
                 return $result;
             }
+            public function devolverPosi($posi){
+                return self::$contactos[$posi];
+            }
         }
     ?>
 </body>
