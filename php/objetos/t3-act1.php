@@ -21,8 +21,7 @@
         // echo Agenda::toString();
         $agenda -> agregarContacto($contacto1);
         $agenda -> agregarContacto($contacto1);
-        echo $agenda;
-        
+        echo $agenda;       
         echo $contacto1;
         echo $contacto2;
     ?>
