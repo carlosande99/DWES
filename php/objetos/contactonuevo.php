@@ -18,18 +18,29 @@
         </fieldset>
     </form>
     <?php
-        include("contacto.inc.php");
-        include("agenda.inc.php");
-        $agenda = new Agenda();
-        $agenda -> agregarContacto(new Contacto($_POST['nombre'],$_POST['apellidos1'],$_POST['apellidos2'],$_POST['telefono']));
-        $id = $agenda -> devolverPosi(0);
-        $nombre = $agenda ->devolverPosi(0);
-        $apellido1 = $agenda -> devolverPosi(0);
-        $apellido2 = $agenda -> devolverPosi(0);
-        $telefono = $agenda -> devolverPosi(0);
+    // faltara comprobar que la informacion es correcta
+    // se tendria que sacar la informacion de la base de datos
         $conexion = new mysqli('localhost', 'carlos', '741852963sande', 'agenda');
+        $sql = "SELECT MAX(id) AS ultima_id FROM contactos";
+        $result = $conexion->query($sql);
+        $row = $result->fetch(PDO::FETCH_ASSOC);
+        if($row['ultima_id'] !== null){
+            $id = $row['ultima_id'];
+            $id++;
+        }else{
+            $id = 1;
+        }
+        $nombre = $_POST['nombre'];
+        $apellido1 = $_POST['apellidos1'];
+        $apellido2 = $_POST['apellidos2'];
+        $telefono = $_POST['telefono'];
         // print $conexion->server_info;
-        $resultado = ('INSERT INTO contacto(id,nombre,apellido_1,apellido_2,telefono) VALUES (:id,:nombre,:apellidos1,:apellidos2,:telefono);');
+        $resultado = "INSERT INTO contacto (id, nombre, apellido_1, apellido_2, telefono) VALUES ('$id','$nombre', '$apellido1', '$apellido2', '$telefono')";
+        if ($conexion->query($resultado) === TRUE) {
+            echo "Datos insertados correctamente.";
+        } else {
+            echo "Error al insertar los datos: " . $conexion->error;
+        }
         $conexion->close();
     ?>
 </body>
