@@ -63,7 +63,7 @@
         <input type="radio" name="genero" value="Rock">Rock
         </label>
         <br><br>
-        <a href="../prueba.php">
+        <a href="prueba.php">
             <button type="button">Volver</button>
         </a>
         <button type="submit" name="boton" value="guardar" style="float: left; margin-right:20px">Guardar</button>
@@ -97,7 +97,6 @@
 
 
     }
-
     ?>
 </body>
 </html>

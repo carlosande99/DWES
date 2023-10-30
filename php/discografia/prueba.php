@@ -34,7 +34,7 @@
         $fecha_com = $fila['fecha_compra'];
         $precio = $fila['precio'];
         echo "<tr>";
-        echo "<td><a href='../discos.php?album=$cod' style='color:blue;text-decoration:none;'>$cod</a></td>";
+        echo "<td><a href='discos.php?album=$cod' style='color:blue;text-decoration:none;'>$cod</a></td>";
         echo "<td>$titulo</td>";
         echo "<td>$discografia</td>";
         echo "<td>$formato</td>";
@@ -45,5 +45,12 @@
     }
     ?>
     </table>
+    <a href="disconuevo.php">
+    <button style="margin-top:5px;margin-right:10px;">Agregar disco</button>
+    </a>
+
+    <a href="canciones.php">
+    <button style="margin-top:5px;margin-right:10px;">Buscar canciones</button>
+    </a>
 </body>
 </html>

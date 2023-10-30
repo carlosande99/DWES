@@ -42,13 +42,17 @@
     }
     ?>
     </table>
-    <a href="../prueba.php">
+    <a href="prueba.php">
     <button style="margin-top:5px;margin-right:10px;">Volver</button>
     </a>
     <?php
-    echo "<a href='../cancionnueva.php?album=$cod_album'>";
-    echo "<button style='margin-top:5px'>Añadir cancion</button></a>";
+    echo "<a href='cancionnueva.php?album=$cod_album'>";
+    echo "<button style='margin-top:5px;margin-right: 10px;'>Añadir cancion</button></a>";
+
+    echo "<a href='borrardisco.php?cod=$cod_album'>";
+    echo "<button>Borrar disco</button></a>";
     ?>
+
 
 </body>
 </html>
