@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(isset($_SESSION['usuario'])){
+
+    }else{
+        header("Location: login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,5 +60,19 @@
     <a href="canciones.php">
     <button style="margin-top:5px;margin-right:10px;">Buscar canciones</button>
     </a>
+
+    <a href="?boton=3">
+    <button style="margin-top:5px;margin-right:10px;">Cerrar Sesion</button>
+    </a>
+    <?php
+    if (isset($_GET['boton'])) {
+        $botonSeleccionado = $_GET['boton'];
+        if ($botonSeleccionado == 3) {
+            session_unset();
+            session_destroy();
+            header("Location: login.php");
+        }
+    }
+    ?>
 </body>
 </html>

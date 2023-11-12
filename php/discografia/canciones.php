@@ -1,3 +1,51 @@
+<?php
+session_start();
+if (isset($_SESSION['usuario'])) {
+
+} else {
+    header("Location: login.php");
+}
+
+// Arreglo para almacenar las búsquedas
+$busquedas = [];
+
+// Comprobar si la cookie existe y contiene búsquedas previas
+if (isset($_COOKIE['ultimas_busquedas'])) {
+    $busquedas = json_decode($_COOKIE['ultimas_busquedas'], true);
+}
+
+// Manejar el formulario de búsqueda
+if (isset($_POST["opcion"])) {
+    $opcion = $_POST["opcion"];
+    $texto = $_POST["texto"];
+    $genero = $_POST['genero'];
+
+    // Agregar la búsqueda actual al arreglo de búsquedas
+    $busquedaActual = [
+        'opcion' => $opcion,
+        'texto' => $texto,
+        'genero' => $genero,
+    ];
+
+    // Agregar la búsqueda al inicio del arreglo para mostrar las más recientes primero
+    array_unshift($busquedas, $busquedaActual);
+
+    // Limitar el número de búsquedas guardadas (puedes ajustar este número)
+    $busquedas = array_slice($busquedas, 0, 5);
+
+    // Guardar el arreglo de búsquedas en la cookie
+    setcookie('ultimas_busquedas', json_encode($busquedas), time() + 3600, '/');
+}
+if (!empty($busquedas)) {
+    echo "<h2>Últimas búsquedas:</h2>";
+    echo "<ul>";
+    foreach ($busquedas as $busqueda) {
+        echo "<li>Buscando en: " . $busqueda['opcion'] . ", Texto: " . $busqueda['texto'] . ", Género: " . $busqueda['genero'] . "</li>";
+    }
+    echo "</ul>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,7 +191,7 @@
                         echo "<td>$genero2</td>";
                         echo "</tr>";
                     }
-                    break;
+                break;
             }
         }
 ?>

@@ -1,4 +1,12 @@
 <?php
+    session_start();
+    if(isset($_SESSION['usuario'])){
+
+    }else{
+        header("Location: login.php");
+    }
+?>
+<?php
     try{
         $conexion = new PDO('mysql:host=localhost;dbname=discografia', 'carlos', '741852963sande'); 
         $cod = isset($_GET['cod']) ? $_GET['cod'] : '';
